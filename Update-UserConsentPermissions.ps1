@@ -8,15 +8,14 @@ Office 365 Exchange Online 00000002-0000-0ff1-ce00-000000000000
 SharePoint Online 00000003-0000-0ff1-ce00-000000000000
 #>
  
-
+# search for Microsoft Graph Resource ID
 $resourceID = Get-MgServicePrincipal -Filter "displayName eq 'Microsoft Graph'" | Select-Object Id, AppId, DisplayName
-
 $graphSP = Get-MgServicePrincipal -Filter "appId eq '00000003-0000-0000-c000-000000000000'"
 $graphSP | Select-Object Id, DisplayName, AppId
 
 # Your values
-$clientId = "d9e4f316-fa79-4ae0-ba43-d75119eeed15"  # Object ID from Enterprise apps
-$userId = "c492dfbb-3dcc-4275-902d-ba22d3807067" # Object ID of the user
+$clientId = ""  # Object ID from Enterprise apps
+$userId = "" # Object ID of the user
 $resourceId = $graphSP.Id  # From step 1
 
 # Verify the client (app) exists
